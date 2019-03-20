@@ -1,0 +1,5 @@
+{% block content %}
+{% for skill,count in skill_list %}
+    <span style="font-size:{{ count }}em;">{{ skill }}</span>
+{%  endfor %}
+{%  endblock %}

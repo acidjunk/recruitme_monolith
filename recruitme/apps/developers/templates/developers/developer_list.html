@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load sitetree %}
+{% load gravatar %}
+
+
+{% block title %}{% sitetree_page_title from "main_en" %}{% endblock %}
+
+{% block statusbar %}
+    {% include "statusbar.html" %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+    <div class="ui segment">
+        {#    Header#}
+        <h1 class="ui header"><i class="{% sitetree_page_hint from "main_en" %} icon"></i>
+            <div class="content">{% sitetree_page_title from "main_en" %}</div>
+        </h1>
+        <div class="ui info message">Only developers with public accounts are visible.</div>
+        {#    End Header#}
+        {% if developers %}
+
+                {% for developer in developers %}
+                    <h2 class="ui header">
+                        {% gravatar developer.user.email 180 %}
+                        <div class="content">
+                            {{ developer.user.first_name }} {{ developer.user.last_name }}
+                            <div class="sub header">{{ developer.bio }}</div>
+                            <a href="{% url 'developers:developer-detail' developer.slug %}">
+                                <div class="ui animated button">
+                                    <div class="visible content">Read more</div>
+                                    <div class="hidden content">
+                                        <i class="right arrow icon"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </h2>
+                {% endfor %}
+
+        {% else %}
+            <div class="info">No developers with a public profile found</div>
+        {% endif %}
+    </div>
+{% endblock %}

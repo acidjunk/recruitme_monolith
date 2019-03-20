@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load sitetree %}
+{% load crispy_forms_tags %}
+
+
+{% block title %} Changes - {% sitetree_page_title from "main_en" %} {% endblock %}
+
+{% block css_header %}
+<link rel="stylesheet" type="text/css" href="{% static "semantic-ui-daterangepicker/daterangepicker.css"  %}"/>
+{% endblock %}
+
+
+{% block javascript_header %}
+    <script type="text/javascript" src="{% static "semantic-ui-daterangepicker/moment.js" %}"></script>
+    <script type="text/javascript" src="{% static "semantic-ui-daterangepicker/daterangepicker.js" %}"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="ui segment">
+
+        {#    Header#}
+        <div class="ui grid">
+            <div class="row">
+
+                <div class="left floated left aligned six wide column">
+                    <h1 class="ui header"><i class="{% sitetree_page_hint from "main_en" %} icon"></i>
+
+                        <div class="content">
+                            {% sitetree_page_title from "main_en" %}
+                        </div>
+                    </h1>
+                </div>
+            </div>
+
+        </div>
+        {#    End Header#}
+        <div class="ui divider"></div>
+        <div class="row">
+            <div class="ui form">
+            <form method="post">{% csrf_token %}
+                {{ form|crispy }}
+                <input class="ui green submit button" type="submit" value=" Submit "/>
+            </form>
+                </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('input[name="start"]').daterangepicker({showDropdowns: true, singleDatePicker: true, format: 'YYYY-MM-DD'});
+  $('input[name="end"]').daterangepicker({showDropdowns: true, singleDatePicker: true, format: 'YYYY-MM-DD'});
+
+});
+</script>
+{% endblock %}

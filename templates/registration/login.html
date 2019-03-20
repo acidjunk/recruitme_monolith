@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+    {% if user and not user.is_anonymous %}
+        <a>Hello, {{ user.get_full_name }}!</a>
+        <br>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <div class="ui segment">
+            <div class="ui two column very relaxed stackable grid">
+                <div class="center aligned eight wide column">
+                    {% if form.errors %}
+                        <p>{% trans "Your username and password didn't match. Please try again." %}</p>
+                    {% endif %}
+                    <div class="ui red raised segment">
+                        <h2 class="ui dividing header">Login</h2>
+
+                        <div class="ui form">
+                            <form method="post" action="{% url 'django.contrib.auth.views.login' %}">
+                                {% csrf_token %}
+
+                                <div class="required field">
+                                    <label>{% trans "Username" %}</label>
+
+                                    <div class="ui icon input">
+                                        {{ form.username }}
+                                        <i class="user icon"></i>
+                                    </div>
+                                </div>
+                                <div class="required field">
+                                    <label>{% trans "Password" %}</label>
+
+                                    <div class="ui icon input">
+                                        {{ form.password }}
+                                        <i class="lock icon"></i>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="next" value="{{ next }}"/>
+                                <input class="ui blue submit button" type="submit" value=" Sign in "/>
+                            </form>
+                        </div>
+                    </div>
+                    <p>{% trans "Forgot password" %}? <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a>!</p>
+                    <div class="ui hidden divider"></div>
+
+                </div>
+
+                <div class="ui vertical divider">OR</div>
+
+                <div class="center aligned eight wide column">
+
+
+
+                    <div class="ui red raised segment">
+                        <h2 class="ui dividing header">Social Login</h2>
+                        <div class="ui segment">
+                            <a href="{% url 'social:begin' 'github' %}?next=/"><button class="ui github button" style="margin-top: 5px;"><i class="github icon"></i> Login with GitHub</button></a>
+                            <a href="{% url 'social:begin' 'linkedin-oauth2' %}?next=/"><button class="ui linkedin button" style="margin-top: 5px;"><i class="linkedin icon"></i> Login with LinkedIn</button></a>
+                            <a href="{% url 'social:begin' 'google-oauth2' %}?next=/"><button class="ui google plus button" style="margin-top: 5px;"><i class="google plus icon"></i> Login with Google Plus</button></a>
+                            <a href="{% url 'social:begin' 'twitter' %}?next=/"><button class="ui twitter button" style="margin-top: 5px;"><i class="twitter icon"></i> Login with Twitter</button></a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

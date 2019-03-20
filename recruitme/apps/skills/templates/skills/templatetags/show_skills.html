@@ -1,0 +1,4 @@
+{% for item in skill_relations %}
+    <div class="ui label">{{ item.skill }}</div>
+{% endfor %}
+<br><a href="{% url 'skills:add_skill' model pk %}">edit skills</a>

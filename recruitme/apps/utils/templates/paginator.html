@@ -1,0 +1,64 @@
+{% load get_human_range %}
+<div class="ui grid">
+    <div class="left floated left aligned eleven wide column">
+
+        <div class="ui pagination menu">
+            {%  if queryset.paginator.num_pages >= 8 %}
+                <a href="?page=1&quicksearch={{ request.GET.quicksearch }}" class="icon item">
+                    <i class="angle double left icon"></i>
+                </a>
+            {% endif %}
+
+            {% if queryset.has_previous %}
+                <a href="?page={{ queryset.previous_page_number }}&quicksearch={{ request.GET.quicksearch }}" class="icon item">
+                    <i class="angle left icon"></i>
+                </a>
+            {% else %}
+                <div class="disabled item">
+                    <i class="angle left icon"></i>
+                </div>
+            {% endif %}
+
+            {%  if queryset.paginator.num_pages < 8 %}
+                {#small pagesets use big paginator#}
+                {% for linkpage in queryset.paginator.num_pages|get_human_range %}
+                  {% ifequal linkpage queryset.number %}
+                     <a class="active item">{{ queryset.number }}</a>
+                  {% else %}
+                     <a href="?page={{ linkpage }}&quicksearch={{ request.GET.quicksearch }}" class="item">{{ linkpage }}</a>
+                  {% endifequal %}
+               {% endfor %}
+            {% else %}
+                {#big pagesets use small paginator#}
+                {% if queryset.has_previous %}
+                    <a href="?page={{ queryset.previous_page_number }}&quicksearch={{ request.GET.quicksearch }}" class="item">{{ queryset.previous_page_number }}</a>
+                {% endif %}
+                <a class="active item">{{ queryset.number }}</a>
+                {% if queryset.has_next %}
+                    <a href="?page={{ queryset.next_page_number }}&quicksearch={{ request.GET.quicksearch }}" class="item">{{ queryset.next_page_number }}</a>
+                {% endif %}
+            {%  endif %}
+
+            {% if queryset.has_next %}
+                <a href="?page={{ queryset.next_page_number }}&quicksearch={{ request.GET.quicksearch }}" class="icon item">
+                    <i class="angle right icon"></i>
+                </a>
+            {% else %}
+                <div class="disabled item">
+                    <i class="angle right icon"></i>
+                </div>
+            {% endif %}
+
+            {%  if queryset.paginator.num_pages >= 8 %}
+                <a href="?page={{ queryset.paginator.num_pages }}&quicksearch={{ request.GET.quicksearch }}" class="icon item">
+                    <i class="angle double right icon"></i>
+                </a>
+            {% endif %}
+        </div>
+
+    </div>
+    <div class="right floated right aligned five wide column">
+        total items: {{ queryset.paginator.count }} <br>
+        page {{ queryset.number }} of {{ queryset.paginator.num_pages }}
+    </div>
+</div>

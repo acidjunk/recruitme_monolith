@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load sitetree %}
+{% load gravatar %}
+{% load show_skills %}
+
+{% block title %}{% sitetree_page_title from "main_en" %}{% endblock %}
+
+{% block statusbar %}
+    {% include "statusbar.html" %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+    <div class="ui segment">
+        {#    Header#}
+        <h1 class="ui header">{% gravatar developer.user.email 50 %}
+            <div class="content">{% sitetree_page_title from "main_en" %}
+                <div class="sub header">{{ developer.bio }}</div>
+            </div>
+        </h1>
+        <p><b>General skills:</b></p>
+        {% show_skills 'developer' developer.id %}
+
+        {#    End Header#}
+        {% if projects %}
+            <h2>Projects</h2>
+            <a href="{% url 'developers:project-new' %}"><button class="ui red button"><i class="add icon"></i> add</button></a>
+            <div class="ui divided list">
+
+                {% for project in projects %}
+                    <div class="item">
+                        <div class="header">{{ project.name }}</div>
+                        <div class="extra">{{ project.start }} - {% if project.is_ended %}{{ project.end }}{% else %}now{% endif %}</div>
+                        {{ project.description|linebreaks }}
+                        <a href="{% url 'developers:project-update' project.pk %}"><button class="ui red button"><i class="edit icon"></i> edit</button></a>
+                        <div class="ui hidden divider"></div>
+                        <b>Technologies and used skills:</b><br><br>
+                        {% show_skills 'project' project.id %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="info">No projects found</div>
+        {% endif %}
+    </div>
+{% endblock %}
