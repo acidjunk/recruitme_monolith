@@ -1,11 +1,6 @@
 """
-Django settings for RecruitMe.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/1.7/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/1.7/ref/settings/
+Settings for RecruitMe.
+Copyright (C) 2019 René Dohmen <acidjunk@gmail.com>
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -186,7 +181,7 @@ SUIT_CONFIG = {
     # 'LIST_PER_PAGE': 15
 }
 
-from social_config import *
+from recruitme.social_config import *
 
 """
 Disables the migration module when an environment setting "DISABLE_MIGRATIONS"

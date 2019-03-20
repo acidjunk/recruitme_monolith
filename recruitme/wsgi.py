@@ -1,5 +1,5 @@
 """
-WSGI config for ScrumBoard project.
+WSGI config for RecruitMe project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
