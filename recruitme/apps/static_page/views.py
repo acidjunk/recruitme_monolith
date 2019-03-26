@@ -8,9 +8,9 @@ from django.utils._os import safe_join
 from django.shortcuts import redirect
 
 def get_page_or_404(name):
-    """Return page content as a Django templae or raise 404 error."""
+    """Return page content as a Django template or raise 404 error."""
     try:
-        file_path = safe_join(settings.STATICPAGES_DIRECTORY, name)
+        file_path = safe_join(settings.STATIC_PAGES_DIRECTORY, name)
     except ValueError:
         raise Http404('Page not found')
     else:
@@ -23,9 +23,9 @@ def get_page_or_404(name):
     return page
 
 def page(request, slug='home'):
-    #Check if user is logged in: the do a redirect to the dashboard
-    #if 'home' in slug and request.user.is_authenticated():
-    #    return redirect('scrumboard:dashboard')
+    # Check if user is logged in: the do a redirect to the dashboard
+    # if 'home' in slug and request.user.is_authenticated():
+    #     return redirect('dashboard')
 
     #Render the requested page if found.
     file_name = '{}.html'.format(slug)

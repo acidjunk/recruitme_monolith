@@ -15,7 +15,7 @@ class Developer(models.Model):
     slug = models.SlugField(unique=True)
     birth_date = models.DateField()
     bio = models.TextField()
-    city = models.CharField(max_length=128) # Todo implement location stuff
+    city = models.CharField(max_length=128)  # Todo implement location stuff
     is_public = models.BooleanField(default=False)
     profile_title = models.CharField(max_length=255)
     linkedin_profile = models.URLField(blank=True)

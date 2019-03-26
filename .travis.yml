@@ -1,0 +1,35 @@
+language: python
+
+# List the versions of Python you'd like to test against
+python:
+  - 2.7
+  - 3.6
+  - 3.7
+
+# Setup DB
+services:
+  - postgresql
+
+# List the versions of Django you'd like to test against
+env:
+  - DJANGO_VERSION=1.8.19
+  - DJANGO_VERSION=1.11.20
+
+# Tell Travis the things it will need to install when it boots
+install:
+   # Install the dependencies the app itself has
+   # which in this case I choose to keep in a requirements files
+ - pip install coveralls
+ - pip install -r requirements-test.txt --use-mirrors
+   # Install whatever version of Django that's listed above
+   # Todo: try to avoid double install of Django
+ - pip install -q Django==$DJANGO_VERSION --use-mirrors
+
+before_script:
+ - cp recruitme/social_config_example.py recruitme/social_config.py
+ - psql -c 'create database recruitme;' -U postgres
+ - DB_USER=postgres DB_PASSWORD="" python manage.py migrate
+
+# Tell Travis how to run the test script itself
+script: DB_USER=postgres DB_PASSWORD="" DEBUG=1 DJANGO_SETTINGS_MODULE=recruitme.settings py.test tests/ --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+after_success: coveralls

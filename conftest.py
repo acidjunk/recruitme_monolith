@@ -1,0 +1,1 @@
+# Needed to give py.test some hint about project structure

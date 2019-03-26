@@ -1,6 +1,13 @@
 """
-Settings for RecruitMe.
 Copyright (C) 2019 René Dohmen <acidjunk@gmail.com>
+
+Licensed under the GNU GENERAL PUBLIC LICENSE Version 3
+A copy of the LICENSE is included in the project.
+
+Settings for RecruitMe
+======================
+- Defaults should be ok for dev purposes
+- DB,SECRET,MEDIA_LOCATION should be configured with ENV variables in production
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -14,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '$xva9nvz%9rftz7mqrv(e5b329dec^83o&oy@z3*!@iv0^be$q'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'VERY_SECRET_OVERRULE_FOR_PROD!!')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG', '0') not in ('', '0'))
 
 TEMPLATE_DEBUG = True
 
@@ -41,7 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'recruitme.apps.social_login',
-    'recruitme.apps.staticpage',
+    'recruitme.apps.static_page',
     'recruitme.apps.utils',
     'recruitme.apps.skills',
     'recruitme.apps.developers',
@@ -95,10 +102,10 @@ WSGI_APPLICATION = 'recruitme.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'recruitme',
-        'USER': 'recruitme',
-        'PASSWORD': 'recruitme',
-        'HOST': 'localhost',
+        'NAME': os.environ.get('DB_NAME', 'recruitme'),
+        'USER': os.environ.get('DB_USER', 'recruitme'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'recruitme'),
+        'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': '',
     }
 }
@@ -133,7 +140,7 @@ STATIC_ROOT = os.path.join(os.path.dirname(__file__), '../static')  # third part
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), '../media')  # third party package assets
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
-STATICPAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages')
+STATIC_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages')
 
 
 gettext = lambda s: s
@@ -210,7 +217,7 @@ class DisableMigrations(object):
     def __getitem__(self, item):
         return "nomigrations"
 
+
 if os.getenv('DISABLE_MIGRATIONS') == '1':
     print("disabling migrations")
     MIGRATION_MODULES = DisableMigrations()
-
