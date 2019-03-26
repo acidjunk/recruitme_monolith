@@ -2,6 +2,12 @@
 
 A monolith implementation of a recruiting platform, focused on developers
 
+Create a postgres DB and ensure that you user can create DB's
+
+`$ python manage.py migrate`
+python manage.py sitetrees
+python manage.py createsuperuser
+python manage.py runserver
 
 
 Changelog
