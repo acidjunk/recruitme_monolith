@@ -20,10 +20,10 @@ install:
    # Install the dependencies the app itself has
    # which in this case I choose to keep in a requirements files
  - pip install coveralls
- - pip install -r requirements_test.txt --use-mirrors
+ - pip install -r requirements_test.txt
    # Install whatever version of Django that's listed above
    # Todo: try to avoid double install of Django
- - pip install -q Django==$DJANGO_VERSION --use-mirrors
+ - pip install -q Django==$DJANGO_VERSION
 
 before_script:
  - cp recruitme/social_config_example.py recruitme/social_config.py
