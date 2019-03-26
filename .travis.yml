@@ -20,8 +20,7 @@ install:
    # Install the dependencies the app itself has
    # which in this case I choose to keep in a requirements files
  - pip install coveralls
- - cd recruitme_monolith
- - pip install -r requirements-test.txt --use-mirrors
+ - pip install -r requirements_test.txt --use-mirrors
    # Install whatever version of Django that's listed above
    # Todo: try to avoid double install of Django
  - pip install -q Django==$DJANGO_VERSION --use-mirrors
