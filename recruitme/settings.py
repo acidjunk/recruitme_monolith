@@ -23,8 +23,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'VERY_SECRET_OVERRULE_FOR_PROD!!')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DEBUG', '0') not in ('', '0'))
+# SECURITY WARNING: don't run with debug turned on in production! -> Defaulting to True to make the tutorial easier
+DEBUG = bool(os.environ.get('DEBUG', '1') not in ('', '0'))
 
 TEMPLATE_DEBUG = True
 
@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'recruitme.apps.social_login',
-    'recruitme.apps.static_page',
+    'recruitme.apps.static_pages',
     'recruitme.apps.utils',
     'recruitme.apps.skills',
     'recruitme.apps.developers',

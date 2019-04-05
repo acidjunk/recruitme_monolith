@@ -7,6 +7,7 @@ from django.template import Template
 from django.utils._os import safe_join
 from django.shortcuts import redirect
 
+
 def get_page_or_404(name):
     """Return page content as a Django template or raise 404 error."""
     try:
@@ -18,9 +19,10 @@ def get_page_or_404(name):
             raise Http404('Page not found')
 
     with open(file_path, 'r') as f:
-        page=Template(f.read())
+        page = Template(f.read())
 
     return page
+
 
 def page(request, slug='home'):
     # Check if user is logged in: the do a redirect to the dashboard

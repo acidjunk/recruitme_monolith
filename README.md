@@ -11,20 +11,18 @@ Quickstart
 The database assumes you will be using postgres. Please ensure that your postgres user 
 can create and drop DB's or has postgres superuser rights
 
-
 ```
 $ createuser -s -P recruitme  # add ` -U postgres` if you are not a postgres superuser  
 $ createdb recruitme
 # Make a venv: this could be a different process/path on your workstation
 $ mkvirtualenv --python=/usr/local/bin/python3 recruitme
 $ python manage.py migrate
-$ python manage.py sitetrees
+$ python manage.py sitetree_resync_apps
 $ python manage.py createsuperuser
 $ python manage.py runserver
 ```
 
 Running tests:
-
 ```
 $ py.test # or execute py.test from any sub folder in unit_tests/
 $ pt.test -n auto
