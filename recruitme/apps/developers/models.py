@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+
+import requests
 from django.utils.encoding import python_2_unicode_compatible
 
 from django.db import models
@@ -20,6 +22,7 @@ class Developer(models.Model):
     profile_title = models.CharField(max_length=255)
     linkedin_profile = models.URLField(blank=True)
     github_profile = models.URLField(blank=True)
+    github_repo_info = models.TextField(blank=True)
     created_by = models.ForeignKey(User, related_name='developer_created_by')
     created_on = models.DateTimeField(auto_now_add=timezone.now)
     modified_by = models.ForeignKey(User, related_name='developer_modified_by')
@@ -32,6 +35,15 @@ class Developer(models.Model):
 
     def __str__(self):
         return self.slug
+
+
+    def update_github_repo_info(self):
+        github_user = self.github_profile.split("/")[-1]
+        response = requests.get('https://api.github.com/users/{owner}/repos'.format(owner=github_user))
+        if response.status_code == 200:
+            json = response.json()
+            self.github_repo_info = json
+            self.save()
 
     def age(self):
         today = date.today()

@@ -47,6 +47,7 @@ def user():
         email='fred@formatics.nl',
         password=USER_PASS)
 
+
 @pytest.fixture
 def admin_rest_client(admin_user):
     """
@@ -89,7 +90,7 @@ def developer(user):
             "core, single thread, strategy lets him focus on just what it's in front of him.",
         profile_title="Developer",
         linkedin_profile="https://linkedin.com/profiles/fred",
-        github_profile="https://github.com/fred",
+        github_profile="https://github.com/acidjunk",
         created_by=user,
         created_on=timezone.now(),
         modified_by=user,

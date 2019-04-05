@@ -10,16 +10,25 @@ Quickstart
 
 The database assumes you will be using postgres. Please ensure that your postgres user 
 can create and drop DB's or has postgres superuser rights
-
 ```
-$ createuser -s -P recruitme  # add ` -U postgres` if you are not a postgres superuser  
-$ createdb recruitme
+createuser -s -P recruitme  # add ` -U postgres` if you are not a postgres superuser  
+createdb recruitme
 # Make a venv: this could be a different process/path on your workstation
-$ mkvirtualenv --python=/usr/local/bin/python3 recruitme
-$ python manage.py migrate
-$ python manage.py sitetree_resync_apps
-$ python manage.py createsuperuser
-$ python manage.py runserver
+mkvirtualenv --python=/usr/local/bin/python3 recruitme
+```
+
+For the tutorial/testing you can continue with a DB with some content
+```
+wget https://www.dropbox.com/s/fn5o5dqn7g0rftt/recruitme_monolith_tutorial.psql?dl=0
+psql -d recruitme < recruitme_monolith_tutorial.psql
+```
+
+Or start from scratch with an empty DB:
+```
+python manage.py migrate
+python manage.py sitetree_resync_apps
+python manage.py createsuperuser
+python manage.py runserver
 ```
 
 Running tests:
@@ -45,6 +54,7 @@ Changelog
 - added tests
 - upgraded semantic
 - upgraded packages: project now works with python3.7
+- added tutorial info and comments + DB to bootstrap your env
 
 
 License
