@@ -13,14 +13,21 @@ services:
 # List the versions of Django you'd like to test against
 env:
   - DJANGO_VERSION=1.8.19
-  - DJANGO_VERSION=1.11.20
+#  - DJANGO_VERSION=1.11.20
+
+# ****************************************************************************************************************
+# Todo: DJANGO 1.11 SUPPORT
+# Several backwards incompatible changes have been done in Django 1.11
+# When you disable the suppressing of warnings in `pytest.ini` you will see what needs to be changed to support
+# Django 1.11
+# ****************************************************************************************************************
 
 # Tell Travis the things it will need to install when it boots
 install:
    # Install the dependencies the app itself has
    # which in this case I choose to keep in a requirements files
  - pip install coveralls
- - pip install -r requirements_test.txt
+ - pip install -r requirements.txt
    # Install whatever version of Django that's listed above
    # Todo: try to avoid double install of Django
  - pip install -q Django==$DJANGO_VERSION
