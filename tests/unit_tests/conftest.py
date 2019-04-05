@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.urlresolvers import reverse
 from django.utils import timezone
 
 import pytest
@@ -35,17 +36,24 @@ ADMIN_PASS = "@dmin_1234"
 @pytest.fixture
 def admin_user():
     return get_user_model().objects.create_superuser(
-        username='admin',
-        email='admin@example.com',
+        username="admin",
+        email="admin@example.com",
         password=ADMIN_PASS)
 
 @pytest.fixture
 def user():
     # TODO: maybe a normal user is better?
     return get_user_model().objects.create_user(
-        username='fred',
-        email='fred@formatics.nl',
+        username="fred",
+        email="fred@formatics.nl",
         password=USER_PASS)
+
+
+@pytest.fixture
+def user_client(user, client):
+    response = client.post(reverse('login'), data={'username': 'fred', 'password': USER_PASS})
+    assert response.status_code == 302
+    return client
 
 
 @pytest.fixture
