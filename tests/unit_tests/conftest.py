@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.core.urlresolvers import reverse
 from django.utils import timezone
 
 import pytest
@@ -46,6 +47,13 @@ def user():
         username="fred",
         email="fred@formatics.nl",
         password=USER_PASS)
+
+
+@pytest.fixture
+def user_client(user, client):
+    response = client.post(reverse('login'), data={'username': 'fred', 'password': USER_PASS})
+    assert response.status_code == 302
+    return client
 
 
 @pytest.fixture
