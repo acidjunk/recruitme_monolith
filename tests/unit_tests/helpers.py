@@ -42,4 +42,4 @@ def assert_rest_detail(rest_client, url, expected_data):
     assert response.status_code == 200, response.content
 
     for key, expected_result in expected_data.items():
-        assert response.data.get(key) == expected_result
+        assert response.data.get(key) == expected_result, response.data
