@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/acidjunk/recruitme_monolith.svg?branch=master)](https://travis-ci.org/acidjunk/recruitme_monolith) [![Coverage Status](https://coveralls.io/repos/acidjunk/django-scrumboard/badge.svg?branch=master)](https://coveralls.io/r/acidjunk/django-scrumboard?branch=master)
+[![Build Status](https://travis-ci.com/acidjunk/recruitme_monolith.svg?branch=master)](https://travis-ci.com/acidjunk/recruitme_monolith) [![Coverage Status](https://coveralls.io/repos/acidjunk/django-scrumboard/badge.svg?branch=master)](https://coveralls.io/r/acidjunk/django-scrumboard?branch=master)
 
 A monolith implementation of a recruiting platform, focused on developers.
 
