@@ -1,4 +1,4 @@
-# Temp disbaled for travis
+# Temp disabled for travis: it crashes on this kind of requiremenets including??
 # -r requirements.txt
 
 # Generic testing

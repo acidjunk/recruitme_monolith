@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/acidjunk/django-scrumboard.svg?branch=master)](https://travis-ci.org/acidjunk/django-scrumboard) [![Coverage Status](https://coveralls.io/repos/acidjunk/django-scrumboard/badge.svg?branch=master)](https://coveralls.io/r/acidjunk/django-scrumboard?branch=master)
+[![Build Status](https://travis-ci.org/acidjunk/recruitme_monolith.svg?branch=master)](https://travis-ci.org/acidjunk/recruitme_monolith) [![Coverage Status](https://coveralls.io/repos/acidjunk/django-scrumboard/badge.svg?branch=master)](https://coveralls.io/r/acidjunk/django-scrumboard?branch=master)
 
 A monolith implementation of a recruiting platform, focused on developers.
 
@@ -15,6 +15,8 @@ createuser -s -P recruitme  # add ` -U postgres` if you are not a postgres super
 createdb recruitme
 # Make a venv: this could be a different process/path on your workstation
 mkvirtualenv --python=/usr/local/bin/python3 recruitme
+pip install -r requirements.txt
+pip install -r requirements_test.txt
 ```
 
 For the tutorial/testing you can continue with a DB with some content
