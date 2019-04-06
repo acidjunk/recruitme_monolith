@@ -26,3 +26,10 @@ def test_info_for_developers(client):
     assert "About" in smart_str(response.content)
     # probably nicer to change it in the page module: Recruit Me Now - Info For Developers
     assert "<title>Recruit Me Now - Info - For - Developers</title>" in smart_str(response.content)
+
+
+def test_sitemap(client):
+    response = client.get('/page/sitemap/')
+    assert response.status_code == 200
+    assert "Sitemap" in smart_str(response.content)
+    assert "<title>Recruit Me Now - Sitemap</title>" in smart_str(response.content)
