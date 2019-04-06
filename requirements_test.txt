@@ -1,4 +1,5 @@
--r requirements.txt
+# Temp disbaled for travis
+# -r requirements.txt
 
 # Generic testing
 pytest==4.3.1
