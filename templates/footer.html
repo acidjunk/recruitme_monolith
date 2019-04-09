@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load get_private_key %}
   <div class="ui inverted vertical footer segment">
     <div class="ui container">
       <div class="ui stackable inverted divided equal height stackable grid">
@@ -17,20 +18,20 @@
             <a href="#" class="item">Diclaimer</a>
             <a href="#" class="item">Privacy</a>
 
-<div class="ui form">
+<div class="ui mini form">
         <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
             <input name="next" type="hidden" value="{{ redirect_to }}" />
-            <select name="language">
+            <select name="language" class="ui selection">
                 {% get_current_language as LANGUAGE_CODE %}
                 {% get_available_languages as LANGUAGES %}
                 {% get_language_info_list for LANGUAGES as languages %}
                 {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                    <option value="{{ language.code }}"{% if language.code == request.session|get_private_key:"_language" %} selected="selected"{% endif %}>
                         {{ language.name_local }} ({{ language.code }})
                     </option>
                 {% endfor %}
             </select>
-            <button class="ui tiny button">Go</button>
+            <button class="ui tiny button" style="margin-top: 5px;">Go</button>
         </form>
 </div>
           </div>
@@ -45,7 +46,6 @@
 <input type="image" src="https://www.paypalobjects.com/nl_NL/NL/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal, de veilige en complete manier van online betalen.">
 <img alt="" border="0" src="https://www.paypalobjects.com/nl_NL/i/scr/pixel.gif" width="1" height="1">
 </form>
-
 
         </div>
       </div>

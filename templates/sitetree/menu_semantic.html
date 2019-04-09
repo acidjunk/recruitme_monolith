@@ -3,36 +3,6 @@
     {%  if item.hint == "question" %}
         {# Show remaining items on the right side #}
         <div class="right menu">
-{#            <div class="ui dropdown item">#}
-{#                <i class="search icon"></i>#}
-{#                        <i class="dropdown icon"></i>#}
-{#                <div class="menu">#}
-{#                    <div class="header">#}
-{#                        Search Issues (WIP)#}
-{#                    </div>#}
-{#                    <div class="ui left icon input">#}
-{#                        <i class="search icon"></i>#}
-{#                        <input type="text" name="search" placeholder="Search...">#}
-{#                    </div>#}
-{##}
-{#                    <div class="header">#}
-{#                        <i class="tags icon"></i>#}
-{#                        Filter by tag#}
-{#                    </div>#}
-{#                    <div class="item">#}
-{#                        <div class="ui red empty circular label"></div>#}
-{#                        Important#}
-{#                    </div>#}
-{#                    <div class="item">#}
-{#                        <div class="ui blue empty circular label"></div>#}
-{#                        Announcement#}
-{#                    </div>#}
-{#                    <div class="item">#}
-{#                        <div class="ui black empty circular label"></div>#}
-{#                        Discussion#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
     {%  endif %}
     {% if item.has_children %}
         <div class="ui dropdown item"><i class="{% if item.is_current or item.in_current_branch %}green {% endif %}{{ item.hint }} icon"></i>{% if item.is_current or item.in_current_branch %}<b>{% endif %}{{ item.title_resolved }}{% if item.is_current or item.in_current_branch %}</b>{% endif %}<i class="{% if item.is_current or item.in_current_branch %}green {% endif %}dropdown icon"></i>

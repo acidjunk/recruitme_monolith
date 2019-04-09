@@ -2,15 +2,16 @@ from django.template import Library
 
 register = Library()
 
+
 @register.filter
-def get_human_range( value ):
-  """
+def get_human_range(value):
+    """
     Filter - returns a list containing range made from given value.
     The range starts at 1 and stops at value.
     Usage (in template):
 
     <ul>{% for i in 3|get_range %}
-      <li>{{ i }}. Do something</li>
+    <li>{{ i }}. Do something</li>
     {% endfor %}</ul>
 
     Results with the HTML:
@@ -21,5 +22,5 @@ def get_human_range( value ):
     </ul>
 
     Instead of 3 one may use the variable set in the views
-  """
-  return range( 1, value+1 )
+    """
+    return range(1, value + 1)
