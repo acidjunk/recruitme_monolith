@@ -37,7 +37,7 @@ Running tests:
 ```
 $ py.test # or execute py.test from any sub folder in unit_tests/
 $ pt.test -n auto
-$ py.test --coverage
+$ pytest --cov=recruitme
 $ py.test PATH 
 ```
 

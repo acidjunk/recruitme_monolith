@@ -1,0 +1,6 @@
+-r requirements.txt
+-r requirements_test.txt
+
+# Warning: not python 2 compatible
+flake8-mypy == 17.8.0
+ipython == 7.4.0            # Interactive python: `python manage shell` with TAB completion
