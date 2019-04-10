@@ -13,10 +13,10 @@ factory_boy==2.10.0         # Factories to created test fixtures
 # Fancy code quality stuff:
 flake8 == 3.7.7             # Pep8 / Linting
 flake8-docstrings == 1.3.0
-flake8-mypy == 17.8.0
+#flake8-mypy == 17.8.0
 
 # Mocks
 requests-mock == 1.5.2
 
 # Some extra goodies (should be in your requirements_dev.txt)
-ipython == 7.4.0            # Interactive python: `python manage shell` with TAB completion
+#ipython == 7.4.0            # Interactive python: `python manage shell` with TAB completion

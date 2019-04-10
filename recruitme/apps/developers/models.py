@@ -36,7 +36,6 @@ class Developer(models.Model):
     def __str__(self):
         return self.slug
 
-
     def update_github_repo_info(self):
         github_user = self.github_profile.split("/")[-1]
         response = requests.get('https://api.github.com/users/{owner}/repos'.format(owner=github_user))
@@ -49,6 +48,7 @@ class Developer(models.Model):
         today = date.today()
         delta = relativedelta(today, self.birth_date)
         return str(delta.years)
+
 
 class Project(models.Model):
     developer = models.ForeignKey(Developer, related_name='developer')
