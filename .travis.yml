@@ -1,3 +1,4 @@
+dist: xenial   # required for Python >= 3.7
 language: python
 
 # List the versions of Python you'd like to test against
