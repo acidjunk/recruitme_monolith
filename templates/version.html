@@ -1,4 +1,4 @@
-{% load get_private_key %}
+{% load i18n %}
 <b>Version</b>: V0.2<br>
 Recruitme monolith<br>
-Language: {{request.session|get_private_key:"_language"}}
+Language: {{ LANGUAGE_CODE }}
