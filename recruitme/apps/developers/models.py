@@ -11,11 +11,14 @@ from datetime import date
 
 from django.conf import settings
 
+
 @python_2_unicode_compatible
 class Developer(models.Model):
     user = models.OneToOneField(User)
     slug = models.SlugField(unique=True)
     birth_date = models.DateField()
+    bitbucket_profile = models.URLField(blank=True)
+    bitbucket_repo_info = models.TextField(blank=True)
     bio = models.TextField()
     city = models.CharField(max_length=128)  # Todo implement location stuff
     is_public = models.BooleanField(default=False)
@@ -42,6 +45,18 @@ class Developer(models.Model):
         if response.status_code == 200:
             json = response.json()
             self.github_repo_info = json
+            self.save()
+
+    def update_bitbucket_repo_info(self):
+        bitbucket_user = self.bitbucket_profile.split("/")[-1]
+        response = requests.get(
+            'https://bitbucket.org/api/2.0/repositories/{owner}'.format(
+                owner=bitbucket_user))
+        if response.status_code == 200:
+            json = response.json()
+            if json.get('next'):
+                raise NotImplementedError('Sry pagination was not in scope')
+            self.bitbucket_repo_info = json.get('values', [])
             self.save()
 
     def age(self):

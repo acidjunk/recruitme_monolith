@@ -96,6 +96,7 @@ def developer(user):
         birth_date=timezone.now(),
         bio="One of the fastest single thread developers known to exists. His single "
             "core, single thread, strategy lets him focus on just what it's in front of him.",
+        bitbucket_profile="https://bitbucket.org/acidjunk",
         profile_title="Developer",
         linkedin_profile="https://linkedin.com/profiles/fred",
         github_profile="https://github.com/acidjunk",
