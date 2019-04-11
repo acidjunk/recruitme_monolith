@@ -146,8 +146,8 @@ STATIC_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages')
 
 gettext = lambda s: s
 LANGUAGES = (
-    ('en', gettext('English')),
-    ('nl', gettext('Dutch')),
+    ('en-us', gettext('English')),
+    ('nl-nl', gettext('Dutch')),
 )
 
 REST_FRAMEWORK = {

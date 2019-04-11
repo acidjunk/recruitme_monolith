@@ -25,16 +25,24 @@
 
         {#    End Header#}
         {% if projects %}
-            <h2>Projects</h2>
-            <a href="{% url 'developers:project-new' %}"><button class="ui red button"><i class="add icon"></i> add</button></a>
+            <h2>Projects
+                <a href="{% url 'developers:project-new' %}">
+                    <button class="ui tiny compact icon button"><i class="add icon"></i></button>
+                </a>
+            </h2>
+
             <div class="ui divided list">
 
                 {% for project in projects %}
                     <div class="item">
-                        <div class="header">{{ project.name }}</div>
+                        <div class="header">{{ project.name }}
+                            <a href="{% url 'developers:project-update' project.pk %}">
+                                <button class="ui tiny compact red icon button"><i class="edit icon"></i></button>
+                            </a>
+                        </div>
                         <div class="extra">{{ project.start }} - {% if project.is_ended %}{{ project.end }}{% else %}now{% endif %}</div>
                         {{ project.description|linebreaks }}
-                        <a href="{% url 'developers:project-update' project.pk %}"><button class="ui red button"><i class="edit icon"></i> edit</button></a>
+
                         <div class="ui hidden divider"></div>
                         <b>Technologies and used skills:</b><br><br>
                         {% show_skills 'project' project.id %}

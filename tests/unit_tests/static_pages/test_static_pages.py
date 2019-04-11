@@ -12,7 +12,10 @@ def test_home(client):
     assert response.status_code == 200
     assert "We Help Developers" in smart_str(response.content)
     assert "<title>Recruit Me Now - Home</title>" in smart_str(response.content)
-
+    assert """<div class="ui inverted link list">
+            <a href="/page/info-for-developers" class="item">Info for developers</a>
+            <a href="/page/info-for-recruiters" class="item">Info for recruiters</a>""" in smart_str(response.content)
+            
 
 def test_about(client):
     response = client.get('/page/about/')
@@ -21,11 +24,12 @@ def test_about(client):
     assert "<title>Recruit Me Now - About</title>" in smart_str(response.content)
 
 
+
 def test_info_for_developers(client):
     response = client.get('/page/info-for-developers/')
     assert "About" in smart_str(response.content)
-    # probably nicer to change it in the page module: Recruit Me Now - Info For Developers
-    assert "<title>Recruit Me Now - Info - For - Developers</title>" in smart_str(response.content)
+    # probably nicer to change it in the page module: Recruit Me Now - Info For Developersqq
+    assert "<title>Recruit Me Now - Info For Developers</title>" in smart_str(response.content)
 
 
 def test_sitemap(client):

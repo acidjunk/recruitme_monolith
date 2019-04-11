@@ -28,13 +28,16 @@ def get_objects(parser, token):
         try:
             tag_name, manager_method, str_from, appmodel, str_as, var_name = token.split_contents()
         except ValueError:
-            raise template.TemplateSyntaxError, "get_objects tag requires a following syntax: {% get_objects <manager_method> from <app_name>.<model_name> limit <amount> as <var_name> %}"
+            raise template.TemplateSyntaxError(
+                "get_objects tag requires a following syntax: {% get_objects <manager_method> from <app_name>.<model_name> limit <amount> as <var_name> %}")
     try:
         app_name, model_name = appmodel.split(".")
     except ValueError:
-        raise template.TemplateSyntaxError, "get_objects tag requires application name and model name separated by a dot"
+        raise template.TemplateSyntaxError(
+            "get_objects tag requires application name and model name separated by a dot")
     model = models.get_model(app_name, model_name)
     return ObjectsNode(model, manager_method, amount, var_name)
+
 
 class ObjectsNode(template.Node):
     def __init__(self, model, manager_method, amount, var_name):
