@@ -1,4 +1,5 @@
 import pytest
+
 # Needed here because the pages have fucntionality that check in the DB if a user is logged in
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_str
@@ -14,6 +15,7 @@ def test_home(client):
     assert """<div class="ui inverted link list">
             <a href="/page/info-for-developers" class="item">Info for developers</a>
             <a href="/page/info-for-recruiters" class="item">Info for recruiters</a>""" in smart_str(response.content)
+            
 
 def test_about(client):
     response = client.get('/page/about/')
