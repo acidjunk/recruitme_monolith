@@ -1,0 +1,205 @@
+{
+  "pagelen": 10,
+  "values": [
+    {
+      "scm": "hg",
+      "website": null,
+      "has_wiki": false,
+      "uuid": "{13ecb044-a084-4d6c-a265-6f9128af4916}",
+      "links": {
+        "watchers": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/watchers"
+        },
+        "branches": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/refs/branches"
+        },
+        "tags": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/refs/tags"
+        },
+        "commits": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/commits"
+        },
+        "clone": [
+          {
+            "href": "https://bitbucket.org/acidjunk/acidjunk-django-url-breadcrumbs",
+            "name": "https"
+          },
+          {
+            "href": "ssh://hg@bitbucket.org/acidjunk/acidjunk-django-url-breadcrumbs",
+            "name": "ssh"
+          }
+        ],
+        "self": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs"
+        },
+        "source": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/src"
+        },
+        "html": {
+          "href": "https://bitbucket.org/acidjunk/acidjunk-django-url-breadcrumbs"
+        },
+        "avatar": {
+          "href": "https://bytebucket.org/ravatar/%7B13ecb044-a084-4d6c-a265-6f9128af4916%7D?ts=python"
+        },
+        "hooks": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/hooks"
+        },
+        "forks": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/forks"
+        },
+        "downloads": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/downloads"
+        },
+        "issues": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/issues"
+        },
+        "pullrequests": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/acidjunk-django-url-breadcrumbs/pullrequests"
+        }
+      },
+      "fork_policy": "allow_forks",
+      "name": "acidjunk-django-url-breadcrumbs",
+      "language": "python",
+      "created_on": "2015-07-15T19:48:33.140363+00:00",
+      "parent": {
+        "links": {
+          "self": {
+            "href": "https://bitbucket.org/!api/2.0/repositories/slafs/django-url-breadcrumbs"
+          },
+          "html": {
+            "href": "https://bitbucket.org/slafs/django-url-breadcrumbs"
+          },
+          "avatar": {
+            "href": "https://bytebucket.org/ravatar/%7Ba1dd7879-9445-499a-aa98-85942a19439c%7D?ts=python"
+          }
+        },
+        "type": "repository",
+        "name": "django-url-breadcrumbs",
+        "full_name": "slafs/django-url-breadcrumbs",
+        "uuid": "{a1dd7879-9445-499a-aa98-85942a19439c}"
+      },
+      "mainbranch": {
+        "type": "named_branch",
+        "name": "default"
+      },
+      "full_name": "acidjunk/acidjunk-django-url-breadcrumbs",
+      "has_issues": true,
+      "owner": {
+        "username": "acidjunk",
+        "display_name": "Autobot",
+        "uuid": "{23fca6a8-c38f-448e-a62f-5df5686df3b9}",
+        "links": {
+          "self": {
+            "href": "https://bitbucket.org/!api/2.0/users/acidjunk"
+          },
+          "html": {
+            "href": "https://bitbucket.org/acidjunk/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/acidjunk/avatar/"
+          }
+        },
+        "nickname": "acidjunk",
+        "type": "user",
+        "account_id": "557058:2bf4c81e-813f-4f9c-8833-e98edc957018"
+      },
+      "updated_on": "2015-07-15T19:48:33.229611+00:00",
+      "size": 300889,
+      "type": "repository",
+      "slug": "acidjunk-django-url-breadcrumbs",
+      "is_private": false,
+      "description": ""
+    },
+    {
+      "scm": "git",
+      "website": null,
+      "has_wiki": false,
+      "name": "hackathon-chuck-norris-api",
+      "links": {
+        "watchers": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/watchers"
+        },
+        "branches": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/refs/branches"
+        },
+        "tags": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/refs/tags"
+        },
+        "commits": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/commits"
+        },
+        "clone": [
+          {
+            "href": "https://bitbucket.org/acidjunk/hackathon-chuck-norris-api.git",
+            "name": "https"
+          },
+          {
+            "href": "git@bitbucket.org:acidjunk/hackathon-chuck-norris-api.git",
+            "name": "ssh"
+          }
+        ],
+        "self": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api"
+        },
+        "source": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/src"
+        },
+        "html": {
+          "href": "https://bitbucket.org/acidjunk/hackathon-chuck-norris-api"
+        },
+        "avatar": {
+          "href": "https://bytebucket.org/ravatar/%7Bd53c70da-b4d8-4bc5-8f36-42e750692cb4%7D?ts=default"
+        },
+        "hooks": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/hooks"
+        },
+        "forks": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/forks"
+        },
+        "downloads": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/downloads"
+        },
+        "pullrequests": {
+          "href": "https://bitbucket.org/!api/2.0/repositories/acidjunk/hackathon-chuck-norris-api/pullrequests"
+        }
+      },
+      "fork_policy": "allow_forks",
+      "uuid": "{d53c70da-b4d8-4bc5-8f36-42e750692cb4}",
+      "language": "typescript",
+      "created_on": "2018-03-06T17:33:09.795911+00:00",
+      "mainbranch": {
+        "type": "branch",
+        "name": "master"
+      },
+      "full_name": "acidjunk/hackathon-chuck-norris-api",
+      "has_issues": false,
+      "owner": {
+        "username": "acidjunk",
+        "display_name": "Autobot",
+        "uuid": "{23fca6a8-c38f-448e-a62f-5df5686df3b9}",
+        "links": {
+          "self": {
+            "href": "https://bitbucket.org/!api/2.0/users/acidjunk"
+          },
+          "html": {
+            "href": "https://bitbucket.org/acidjunk/"
+          },
+          "avatar": {
+            "href": "https://bitbucket.org/account/acidjunk/avatar/"
+          }
+        },
+        "nickname": "acidjunk",
+        "type": "user",
+        "account_id": "557058:2bf4c81e-813f-4f9c-8833-e98edc957018"
+      },
+      "updated_on": "2018-03-06T17:33:09.882338+00:00",
+      "size": 135520,
+      "type": "repository",
+      "slug": "hackathon-chuck-norris-api",
+      "is_private": false,
+      "description": ""
+    }
+  ],
+  "page": 1,
+  "size": 2
+}
