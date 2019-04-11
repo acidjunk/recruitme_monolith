@@ -32,5 +32,5 @@ def page(request, slug='home'):
     #Render the requested page if found.
     file_name = '{}.html'.format(slug)
     page = get_page_or_404(file_name)
-    context = {'slug': slug, 'title': slug.replace('-', ' - ').title(), 'page': page}
+    context = {'slug': slug, 'title': slug.replace('-', ' ').title(), 'page': page}
     return render(request, 'page.html', context)
