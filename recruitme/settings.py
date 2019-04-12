@@ -13,6 +13,7 @@ Settings for RecruitMe
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.utils.translation import gettext_lazy as _
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -62,6 +63,7 @@ if DEBUG:
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -81,6 +83,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'social.apps.django_app.context_processors.backends',
     'social.apps.django_app.context_processors.login_redirect',
+    'django.template.context_processors.i18n',
 )
 
 AUTHENTICATION_BACKENDS = (
@@ -144,10 +147,9 @@ TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 STATIC_PAGES_DIRECTORY=os.path.join(BASE_DIR, 'pages')
 
 
-gettext = lambda s: s
 LANGUAGES = (
-    ('en-us', gettext('English')),
-    ('nl-nl', gettext('Dutch')),
+    ('en', _('English')),
+    ('nl', _('Dutch')),
 )
 
 REST_FRAMEWORK = {

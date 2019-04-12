@@ -17,6 +17,16 @@ def test_home(client):
             <a href="/page/info-for-recruiters" class="item">Info for recruiters</a>""" in smart_str(response.content)
             
 
+def test_change_language_code(client):
+    payload = {'language': 'en'}
+    response = client.post('/i18n/setlang/', payload)
+    assert response.status_code == 302
+
+    response = client.get('/')
+    assert response.status_code == 200
+    assert "Language: en" in smart_str(response.content)
+
+
 def test_about(client):
     response = client.get('/page/about/')
     assert response.status_code == 200
