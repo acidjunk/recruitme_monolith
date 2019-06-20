@@ -19,10 +19,14 @@ pip install -r requirements.txt
 pip install -r requirements_test.txt
 ```
 
-For the tutorial/testing you can continue with a DB with some content
+For the tutorial/testing you can continue with a DB with some content.
+
+It will have some users and a fake profile. Credentials will be provided during the demo.
 ```
-wget https://www.dropbox.com/s/fn5o5dqn7g0rftt/recruitme_monolith_tutorial.psql?dl=0
+wget https://www.dropbox.com/s/fn5o5dqn7g0rftt/recruitme_monolith_tutorial.psql?dl=0 -O recruitme_monolith_tutorial.psql
 psql -d recruitme < recruitme_monolith_tutorial.psql
+python manage.py migrate
+python manage.py runserver
 ```
 
 Or start from scratch with an empty DB:
