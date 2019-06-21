@@ -43,13 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social.apps.django_app.default',
     'sitetree',
     'django_gravatar',
     'crispy_forms',
     'rest_framework',
     'rest_framework.authtoken',
-    'recruitme.apps.social_login',
     'recruitme.apps.static_pages',
     'recruitme.apps.utils',
     'recruitme.apps.skills',
@@ -81,16 +79,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
-    'social.apps.django_app.context_processors.backends',
-    'social.apps.django_app.context_processors.login_redirect',
     'django.template.context_processors.i18n',
 )
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.github.GithubOAuth2',
-    'social.backends.linkedin.LinkedinOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
 
