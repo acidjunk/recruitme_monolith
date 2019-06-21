@@ -36,7 +36,6 @@ install:
  - pip install -q Django==$DJANGO_VERSION
 
 before_script:
- - cp recruitme/social_config_example.py recruitme/social_config.py
  - psql -c 'create database recruitme;' -U postgres
  - DB_USER=postgres DB_PASSWORD="" python manage.py migrate
 
