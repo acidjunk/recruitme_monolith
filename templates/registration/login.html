@@ -9,7 +9,7 @@
         <a href="/logout">Logout</a>
     {% else %}
         <div class="ui segment">
-            <div class="ui two column very relaxed stackable grid">
+            <div class="center aligned ui column very relaxed stackable grid">
                 <div class="center aligned eight wide column">
                     {% if form.errors %}
                         <p>{% trans "Your username and password didn't match. Please try again." %}</p>
@@ -45,14 +45,6 @@
                     </div>
                     <p>{% trans "Forgot password" %}? <a href="{% url 'password_reset' %}">{% trans "Reset it" %}</a>!</p>
                     <div class="ui hidden divider"></div>
-
-                </div>
-
-                <div class="ui vertical divider">OR</div>
-
-                <div class="center aligned eight wide column">
-
-
 
                 </div>
             </div>
