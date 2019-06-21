@@ -183,8 +183,6 @@ SUIT_CONFIG = {
     # 'LIST_PER_PAGE': 15
 }
 
-from recruitme.social_config import *
-
 """
 Disables the migration module when an environment setting "DISABLE_MIGRATIONS"
 is set to '1'.
